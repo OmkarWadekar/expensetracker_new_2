@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:expensetracker/bill_splitter/Home.dart';
 
 class TopNeuCard extends StatelessWidget {
   final String balance;
@@ -24,7 +25,7 @@ class TopNeuCard extends StatelessWidget {
               Text('B A L A N C E',
                   style: TextStyle(color: Colors.grey[500], fontSize: 16)),
               Text(
-                '\$' + balance,
+                '₹ ' + balance,
                 style: TextStyle(color: Colors.grey[800], fontSize: 40),
               ),
               Padding(
@@ -99,10 +100,26 @@ class TopNeuCard extends StatelessWidget {
                           ],
                         )
                       ],
-                    )
+                    ),
                   ],
                 ),
-              )
+              ),
+              Container(
+                color: Colors.grey.shade400,
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => BillSplitter()),
+                    );
+                  },
+                  child: Text(" Split Bill "),
+                ),
+                // decoration: BoxDecoration(
+                //   borderRadius: BorderRadius.circular(1),
+                //   color: Colors.grey[300],
+                // ),
+              ),
             ],
           ),
         ),
